@@ -1,0 +1,17 @@
+
+path: [YOUR DATASET DIRECTORY]/perio_KPT/1_Experiment
+train: standard_box/f1/train/images # train images (relative to 'path')
+val: holdout_test_standard_box/images # val images (relative to 'path')
+
+# Keypoints
+kpt_shape: [11, 3] # number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)
+flip_idx: [3, 4, 5, 0, 1, 2, 6, 7, 9, 8, 10]
+
+# Classes
+names:
+  0: Single Root
+  1: Double Root
+  2: Tripple Root
+  3: ARR
+  4: PLS
+

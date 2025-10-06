@@ -1,0 +1,8 @@
+path: [YOUR DATASET DIRECTORY]/perio_KPT/2_Auxiliary_Segmentation
+train: train/images
+val: val/images
+
+
+# Classes
+names:
+  0: Tooth

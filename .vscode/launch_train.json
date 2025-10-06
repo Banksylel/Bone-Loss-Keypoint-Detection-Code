@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Train Model",
+            "type": "python",
+            "request": "launch",
+            "program": "Train_Model.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--code-directory", "[code directory]",
+                "--folds", "5",
+                "--epochs", "200",
+                "--image-size", "640",
+                "--output-csv", "training_results.csv"
+            ]
+        }
+    ]
+}

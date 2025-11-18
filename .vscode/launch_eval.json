@@ -9,16 +9,16 @@
             "program": "Eval_Model.py",
             "console": "integratedTerminal",
             "args": [
-                "--code-directory", "[Code directory]", 
-                "--dataset-dir-standard", "[Dataset Directory To Non-Rotating dataset]",  // Validation: "[code directory]/1_Experiment/standard_box",               Holdout Test: "[code directory]/1_Experiment/holdout_test_standard_box",             External Validation: "[code directory]/3_External_Set/fixed_box",
-                "--dataset-dir-rotate", "[Dataset Directory To Rotating dataset]",  // Validation: "[code directory]/1_Experiment/rotating_box",                     Holdout Test: "[code directory]/1_Experiment/holdout_test_rotating_box/labels",      External Validation: "[code directory]/3_External_Set/rotating_box/labels",
+                "--code-directory", "F:/Github Repos/Bone-Loss-Keypoint-Detection-Code", 
+                "--dataset-dir-standard", "D:/Datasets Main/4. Bone loss keypoint/perio_KPT/1_Experiment/standard_box",  // Validation: "[code directory]/1_Experiment/standard_box",               Holdout Test: "[code directory]/1_Experiment/holdout_test_standard_box",             External Validation: "[code directory]/3_External_Set/standard_box",
+                "--dataset-dir-rotate", "D:/Datasets Main/4. Bone loss keypoint/perio_KPT/1_Experiment/rotating_box",  // Validation: "[code directory]/1_Experiment/rotating_box",                     Holdout Test: "[code directory]/1_Experiment/holdout_test_rotating_box/labels",      External Validation: "[code directory]/3_External_Set/rotating_box/labels",
                 "--fold-folder-nme", "fold",
-                "--save-loc", "[File Path to Save Location]", // Validation Path "[code directory]/runs/val_results"        Test Path: "[code directory]/runs/test_results",          External Evaluation Path: "[code directory]/runs/external_eval_results",
+                "--save-loc", "F:/Github Repos/Bone-Loss-Keypoint-Detection-Code/runs/images", // Validation Path "[code directory]/runs/val_results"        Test Path: "[code directory]/runs/test_results",          External Evaluation Path: "[code directory]/runs/external_eval_results",
                 "--test-set", "False", // Validation: "False"        Holdout Test or External Validation: "True"
                 "--post-process-kpts", "True", // With post processing: "True"           Without post processing: "False"
                 "--image-size", "640",
                 "--folds", "5",
-                "--view-images", "False", // View images: "True"                Do not view images: "False"
+                "--view-images", "True", // View images: "True"                Do not view images: "False"
                 "--include-fp-fn-nme", "True",
                 "--include-fp-fn-prck", "True",
                 "--non-max-merge-thresh", "0.1",

@@ -231,7 +231,10 @@ def post_process(model, model_kpts, image_path, args, class_ignore=[7, 8, 9, 10]
     """
 
     imgz=args.image_size
-    show_images=args.view_images
+    try:
+        show_images=args.view_images
+    except:
+        show_images = False
     non_max_merge=args.non_max_merge_thresh
     iou_pred=args.pred_seg_iou
     conf_pred=args.pred_seg_conf

@@ -44,6 +44,7 @@ def Evaluate_Model(weight_path_orig, weights_orig, rotate_loc_orig, pred_imgs_or
     nme_list, prck_005_list, prck_025_list, prck_05_list, f1_pbl_m_list, f1_pbl_d_list, prec_pbl_m_list, prec_pbl_d_list, spec_pbl_m_list, spec_pbl_d_list, sens_pbl_m_list, sens_pbl_d_list =  [], [], [], [], [], [], [], [], [], [], [], []
     spec_f_list, sens_f_list, f1_f_list, prec_f_list = [[],[]], [[],[]], [[],[]], [[],[]]
     targ_rotate_index_list_fold, pred_rotate_index_list_fold, target_class_index_list_fold = [], [], []
+    confusion_matrix_pbl_m, confusion_matrix_pbl_d = [], []
     
     # loops though all folds in the fold folder
     for fold in range(args.folds):
@@ -446,6 +447,8 @@ def Evaluate_Model(weight_path_orig, weights_orig, rotate_loc_orig, pred_imgs_or
             prec_pbl_d.append(prec)
             f1_pbl_d.append(f1)
 
+        confusion_matrix_pbl_m.append({'tp':pbl_tp_m, 'fp':pbl_fp_m, 'tn':pbl_tn_m, 'fn':pbl_fn_m})
+        confusion_matrix_pbl_d.append({'tp':pbl_tp_d, 'fp':pbl_fp_d, 'tn':pbl_tn_d, 'fn':pbl_fn_d})
         # adds average metrics to results
         sens_pbl_d_list.append([np.nanmean(np.array(sens_pbl_d, dtype=float))] + sens_pbl_d)
         spec_pbl_d_list.append([np.nanmean(np.array(spec_pbl_d, dtype=float))] + spec_pbl_d)
@@ -597,6 +600,15 @@ def Evaluate_Model(weight_path_orig, weights_orig, rotate_loc_orig, pred_imgs_or
     print('Recall: ', np.nanmean(np.array(sens_pbl_m_list[0], dtype=float)), ' +/- ', np.std(np.array(sens_pbl_m_list[0], dtype=float)))
     print('F1 Score: ', np.nanmean(np.array(f1_pbl_m_list[0], dtype=float)), ' +/- ', np.std(np.array(f1_pbl_m_list[0], dtype=float)))
     print('Specificity: ', np.nanmean(np.array(spec_pbl_m_list[0], dtype=float)), ' +/- ', np.std(np.array(spec_pbl_m_list[0], dtype=float)))
+    # prints the total TP, TN, FP, FN values for each fold
+    for fld in range(len(confusion_matrix_pbl_m)):
+        print('## Fold ', fld+1, ' ##')
+        # total_tp_m = np.sum(confusion_matrix_pbl_m[fld]['tp'])
+        # total_tn_m = np.sum(confusion_matrix_pbl_m[fld]['tn'])
+        # total_fp_m = np.sum(confusion_matrix_pbl_m[fld]['fp'])
+        # total_fn_m = np.sum(confusion_matrix_pbl_m[fld]['fn'])
+
+        print("Confusion Matrix (Mesial):", confusion_matrix_pbl_m[fld])
     print('\n')
 
     # saves percentage bone loss metrics for each class and average (All) as csv in args.save_loc
@@ -654,6 +666,14 @@ def Evaluate_Model(weight_path_orig, weights_orig, rotate_loc_orig, pred_imgs_or
     print('Recall: ', np.nanmean(np.array(sens_pbl_d_list[0], dtype=float)), ' +/- ', np.std(np.array(sens_pbl_d_list[0], dtype=float)))
     print('F1 Score: ', np.nanmean(np.array(f1_pbl_d_list[0], dtype=float)), ' +/- ', np.std(np.array(f1_pbl_d_list[0], dtype=float)))
     print('Specificity: ', np.nanmean(np.array(spec_pbl_d_list[0], dtype=float)), ' +/- ', np.std(np.array(spec_pbl_d_list[0], dtype=float)))
+    for fld in range(len(confusion_matrix_pbl_d)):
+        print('## Fold ', fld+1, ' ##')
+        # total_tp_m = np.sum(confusion_matrix_pbl_m[fld]['tp'])
+        # total_tn_m = np.sum(confusion_matrix_pbl_m[fld]['tn'])
+        # total_fp_m = np.sum(confusion_matrix_pbl_m[fld]['fp'])
+        # total_fn_m = np.sum(confusion_matrix_pbl_m[fld]['fn'])
+
+        print("Confusion Matrix (Distal):", confusion_matrix_pbl_d[fld])
     print('\n')
 
     # saves

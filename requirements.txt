@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+opencv-python
+PyYAML
+tqdm
+requests
+scipy
+seaborn
+os-sys

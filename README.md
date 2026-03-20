@@ -10,14 +10,14 @@ Please follow the instructions in Train_and_Eval.ipynb or follow this readme.
 
 ## Overview
 
-This code can be used with any baseline landmark/pose estimation model, contributions are in the dental imaging specific post processing module.
+This code can be used with any baseline landmark/pose estimation model, the baseline model used is YOLOv8n-pose, contributions are in the dental imaging specific post processing module.
 
 ### Abstract
 
 
 Objectives: This study proposes a deep learning framework and annotation methodology for the automatic detection of periodontal bone loss landmarks, associated conditions, and staging.
 
-Methods: 192 periapical radiographs were collected and annotated with a stage agnostic methodology, labelling clinically relevant landmarks regardless of disease presence or extent. We propose a heuristic post-processing module that aligns predicted keypoints to tooth boundaries using an auxiliary instance segmentation model. An evaluation metric, Percentage of Relative Correct Keypoints (P RCK), is proposed to capture keypoint performance in dental imaging domains. Four donor pose estimation models were adapted with fine-tuning for our keypoint problem.
+Methods: 192 periapical radiographs were collected and annotated with a stage agnostic methodology, labelling clinically relevant landmarks regardless of disease presence or extent. We propose a heuristic post-processing module that aligns predicted keypoints to tooth boundaries using an auxiliary instance segmentation model. An evaluation metric, Percentage of Relative Correct Keypoints (PRCK), is proposed to capture keypoint performance in dental imaging domains. Four donor pose estimation models were adapted with fine-tuning for our keypoint problem.
 
 Results: Post-processing improved fine-grained localisation, raising average P RCK0.05 by +0.028, but reduced coarse performance for P RCK0.25 by −0.0523 and P RCK0.5 by −0.0345. Orientation estimation shows excellent performance for auxiliary segmentation when filtered with either stage 1 object detection model. Periodontal staging was detected sufficiently, with the best mesial and distal Dice scores of 0.508 and 0.489, while furcation involvement and widened periodontal ligament space tasks remained challenging due to scarce positive samples. Scalability is implied with similar validation and external set performance.
 
